@@ -1,0 +1,1 @@
+Struggling to get SLS to handle binary files on AWS.  This repo is a simple test case
