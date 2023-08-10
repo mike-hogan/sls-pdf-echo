@@ -1,0 +1,25 @@
+service: sls-pdf-service
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 256
+  timeout: 10
+
+functions:
+  upload:
+    handler: handler.upload
+    events:
+      - http:
+          path: upload
+          method: post
+          cors: true
+
+plugins:
+  - serverless-apigw-binary
+  - serverless-offline
+
+custom:
+  apigwBinary:
+    types:
+      - "application/pdf"
